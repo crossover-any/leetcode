@@ -19,12 +19,12 @@ public class QueueForStack {
 
     public int pop() {
         stack2.clear();
-       while (!stack1.isEmpty()){
-           stack2.push(stack1.pop());
-       }
-       int first = stack2.peek();
-       stack2.pop();
-        while (!stack2.isEmpty()){
+        while (!stack1.isEmpty()) {
+            stack2.push(stack1.pop());
+        }
+        int first = stack2.peek();
+        stack2.pop();
+        while (!stack2.isEmpty()) {
             stack1.push(stack2.pop());
         }
         return first;

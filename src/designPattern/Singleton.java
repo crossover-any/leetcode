@@ -7,15 +7,15 @@ package designPattern;
  * @Created by Tengxq
  */
 public class Singleton {
-    private Singleton(){
+    private Singleton() {
 
     }
 
-    private static class SingletonHolder{
+    private static class SingletonHolder {
         private static final Singleton instance = new Singleton();
     }
 
-    public static final Singleton getInstance(){
+    public static final Singleton getInstance() {
         return SingletonHolder.instance;
     }
 }

@@ -14,35 +14,35 @@ public class subsetsWithDup90 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         int len = nums.length;
         List<List<Integer>> res = new ArrayList<>();
-        if (len == 0){
+        if (len == 0) {
             return res;
         }
         Arrays.sort(nums);
         boolean[] mark = new boolean[len];
         List<Integer> pre = new ArrayList<>();
-        subset(nums,res,pre,mark,0);
+        subset(nums, res, pre, mark, 0);
         return res;
     }
 
-    public void subset(int[] nums,List<List<Integer>> res,List<Integer> pre,boolean[] mark,int begin){
+    public void subset(int[] nums, List<List<Integer>> res, List<Integer> pre, boolean[] mark, int begin) {
         res.add(new ArrayList<>(pre));
-        for (int i = begin;i<nums.length;i++){
-            if (i>0 && nums[i-1] == nums[i] && !mark[i-1]){
+        for (int i = begin; i < nums.length; i++) {
+            if (i > 0 && nums[i - 1] == nums[i] && !mark[i - 1]) {
                 continue;
             }
             mark[i] = true;
             pre.add(nums[i]);
 
-            subset(nums,res,pre,mark,i+1);
+            subset(nums, res, pre, mark, i + 1);
 
-            pre.remove(pre.size()-1);
+            pre.remove(pre.size() - 1);
             mark[i] = false;
         }
     }
 
     public static void main(String[] args) {
         subsetsWithDup90 solution = new subsetsWithDup90();
-        int[] nums = {1,2,2};
+        int[] nums = {1, 2, 2};
         List list = solution.subsetsWithDup(nums);
     }
 

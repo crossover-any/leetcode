@@ -12,19 +12,20 @@ import java.util.List;
  * @Created by Tengxq
  */
 public class printListFromTailToHead2 {
-    private ArrayList<Integer> res ;
+    private ArrayList<Integer> res;
+
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        recursion(listNode,1);
+        recursion(listNode, 1);
         return res;
     }
 
-    public void recursion(ListNode listNode,int n){
-        if(listNode .next == null){
-            res = new ArrayList(n );
+    public void recursion(ListNode listNode, int n) {
+        if (listNode.next == null) {
+            res = new ArrayList(n);
             res.add(listNode.val);
-            return ;
+            return;
         }
-        recursion(listNode.next,n+1);
+        recursion(listNode.next, n + 1);
         res.add(listNode.val);
     }
 

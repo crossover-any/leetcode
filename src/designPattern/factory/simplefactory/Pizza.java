@@ -11,15 +11,15 @@ public abstract class Pizza {
 
     public abstract void prepare();
 
-    public void bake(){
-        System.out.println(name+"is baking");
+    public void bake() {
+        System.out.println(name + "is baking");
     }
 
-    public void cut(){
-        System.out.println(name+"is cuting");
+    public void cut() {
+        System.out.println(name + "is cuting");
     }
 
-    public void box(){
-        System.out.println(name+"is boxing");
+    public void box() {
+        System.out.println(name + "is boxing");
     }
 }

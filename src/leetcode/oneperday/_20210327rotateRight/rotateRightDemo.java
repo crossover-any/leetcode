@@ -25,10 +25,10 @@ class Solution {
         q = p;
         p = head;
         m = k % len;
-        if ( m > 0 ) {
+        if (m > 0) {
             q.next = head;
             //如果向右移m位，那么新的尾结点是 len-m;头节点是 len - m + 1
-            for (int i = 1; i < len - m ; i++) {
+            for (int i = 1; i < len - m; i++) {
                 p = p.next;
             }
             head = p.next;
@@ -37,6 +37,7 @@ class Solution {
         return head;
     }
 }
+
 /**
  * xxx
  *
@@ -59,8 +60,8 @@ public class rotateRightDemo {
         n5.next = n6;
         n6.next = n7;
         Solution solution = new Solution();
-        ListNode listNode = solution.rotateRight(n1,8);
-        while (null != listNode){
+        ListNode listNode = solution.rotateRight(n1, 8);
+        while (null != listNode) {
             System.out.println(listNode.val);
             listNode = listNode.next;
         }

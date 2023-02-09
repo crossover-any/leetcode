@@ -14,30 +14,29 @@ import model.TreeNode;
 public class FindKthNode {
     TreeNode kthNode = null;
     int index = 0;
-    TreeNode KthNode(TreeNode pRoot, int k)
-    {
-        if(pRoot == null || k<1){
+
+    TreeNode KthNode(TreeNode pRoot, int k) {
+        if (pRoot == null || k < 1) {
             return kthNode;
         }
         index = 0;
-        findKthNode(pRoot,k);
+        findKthNode(pRoot, k);
         return kthNode;
     }
 
-    void findKthNode(TreeNode node,int k){
-        if(node == null){
+    void findKthNode(TreeNode node, int k) {
+        if (node == null) {
             return;
         }
-        findKthNode(node.left,k);
-        if(index == k){
+        findKthNode(node.left, k);
+        if (index == k) {
             kthNode = node;
-            return ;
+            return;
         }
         index++;
-        findKthNode(node.right,k);
+        findKthNode(node.right, k);
 
     }
-
 
 
     public static void main(String[] args) {
@@ -55,6 +54,6 @@ public class FindKthNode {
         node3.left = node6;
         node3.right = node7;
         FindKthNode test = new FindKthNode();
-        System.out.println(test.KthNode(node1,1).val);
+        System.out.println(test.KthNode(node1, 1).val);
     }
 }

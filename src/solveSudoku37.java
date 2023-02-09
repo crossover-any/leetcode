@@ -11,9 +11,9 @@ public class solveSudoku37 {
     // row size
     int N = n * n;
 
-    int [][] rows = new int[N][N + 1];
-    int [][] columns = new int[N][N + 1];
-    int [][] boxes = new int[N][N + 1];
+    int[][] rows = new int[N][N + 1];
+    int[][] columns = new int[N][N + 1];
+    int[][] boxes = new int[N][N + 1];
 
     char[][] board;
 
@@ -23,7 +23,7 @@ public class solveSudoku37 {
     /*
     Check if one could place a number d in (row, col) cell
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
         return rows[row][d] + columns[col][d] + boxes[idx][d] == 0;
     }
 
@@ -31,19 +31,19 @@ public class solveSudoku37 {
     /*
     Place a number d in (row, col) cell
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
 
         rows[row][d]++;
         columns[col][d]++;
         boxes[idx][d]++;
-        board[row][col] = (char)(d + '0');
+        board[row][col] = (char) (d + '0');
     }
 
     public void removeNumber(int d, int row, int col) {
     /*
     Remove a number which didn't lead to a solution
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
         rows[row][d]--;
         columns[col][d]--;
         boxes[idx][d]--;
@@ -65,10 +65,10 @@ public class solveSudoku37 {
         else {
             // if we're in the end of the row
             // go to the next row
-            if (col == N - 1){
+            if (col == N - 1) {
                 backtrack(row + 1, 0);
             }
-                // go to the next column
+            // go to the next column
             else {
                 backtrack(row, col + 1);
             }
@@ -88,13 +88,12 @@ public class solveSudoku37 {
                     placeNextNumbers(row, col);
                     // if sudoku is solved, there is no need to backtrack
                     // since the single unique solution is promised
-                    if (!sudokuSolved){
+                    if (!sudokuSolved) {
                         removeNumber(d, row, col);
                     }
                 }
             }
-        }
-        else {
+        } else {
             placeNextNumbers(row, col);
         }
     }
@@ -118,15 +117,15 @@ public class solveSudoku37 {
     public static void main(String[] args) {
         solveSudoku37 test = new solveSudoku37();
         char[][] board = new char[9][9];
-        char[] row0 = {'5','3','.','.','7','.','.','.','.'};
-        char[] row1 = {'6','.','.','1','9','5','.','.','.'};
-        char[] row2 = {'.','9','8','.','.','.','.','6','.'};
-        char[] row3 = {'8','.','.','.','6','.','.','.','3'};
-        char[] row4 = {'4','.','.','8','.','3','.','.','1'};
-        char[] row5 = {'7','.','.','.','2','.','.','.','6'};
-        char[] row6 = {'.','6','.','.','.','.','2','8','.'};
-        char[] row7 = {'.','.','.','4','1','9','.','.','5'};
-        char[] row8 = {'.','.','.','.','8','.','.','7','9'};
+        char[] row0 = {'5', '3', '.', '.', '7', '.', '.', '.', '.'};
+        char[] row1 = {'6', '.', '.', '1', '9', '5', '.', '.', '.'};
+        char[] row2 = {'.', '9', '8', '.', '.', '.', '.', '6', '.'};
+        char[] row3 = {'8', '.', '.', '.', '6', '.', '.', '.', '3'};
+        char[] row4 = {'4', '.', '.', '8', '.', '3', '.', '.', '1'};
+        char[] row5 = {'7', '.', '.', '.', '2', '.', '.', '.', '6'};
+        char[] row6 = {'.', '6', '.', '.', '.', '.', '2', '8', '.'};
+        char[] row7 = {'.', '.', '.', '4', '1', '9', '.', '.', '5'};
+        char[] row8 = {'.', '.', '.', '.', '8', '.', '.', '7', '9'};
         board[0] = row0;
         board[1] = row1;
         board[2] = row2;

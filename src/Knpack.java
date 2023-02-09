@@ -6,15 +6,15 @@ import java.util.Arrays;
  * @Date 2019/11/23 20:19
  * @Created by Tengxq
  */
-public class Knpack{
-    public static int match(int[] arr){
+public class Knpack {
+    public static int match(int[] arr) {
         int sum = Arrays.stream(arr).sum();
         int len = arr.length;
-        int halfOfSum = sum/2;
+        int halfOfSum = sum / 2;
         // 确定矩阵二维定义：第一维代表前i个物体，i可为0；第二维代表从0开始的连续容量值
         // 确定矩阵长宽，并初始化。因为矩阵第一维和第二维都是从0开始，所以要加一
-        int matrix_firstDimensionLen = len+1;
-        int matrix_secondDimensionLen = halfOfSum+1;
+        int matrix_firstDimensionLen = len + 1;
+        int matrix_secondDimensionLen = halfOfSum + 1;
         int[][] matrix = new int[matrix_firstDimensionLen][matrix_secondDimensionLen];
         //初始化矩阵边界为0
         for (int i = 0; i < matrix[0].length; i++) {
@@ -31,10 +31,10 @@ public class Knpack{
         for (int i = 1; i < matrix_firstDimensionLen; i++) {
             for (int j = 1; j < matrix_secondDimensionLen; j++) {
                 //如果第i件物体不装进背包
-                matrix[i][j] = matrix[i-1][j];
+                matrix[i][j] = matrix[i - 1][j];
                 //如果第i件物体装进背包     //备注：j - arr[i-1] >= 0防止下标为负
-                if(j - arr[i-1] >= 0 && matrix[i - 1][j - arr[i-1]] + arr[i-1]  > matrix[i][j]){
-                    matrix[i][j] = matrix[i - 1][j - arr[i-1]] + arr[i-1];
+                if (j - arr[i - 1] >= 0 && matrix[i - 1][j - arr[i - 1]] + arr[i - 1] > matrix[i][j]) {
+                    matrix[i][j] = matrix[i - 1][j - arr[i - 1]] + arr[i - 1];
                 }
             }
         }
@@ -45,11 +45,11 @@ public class Knpack{
             System.out.println("");
         }
         System.out.println(matrix[len][halfOfSum]);
-        return  sum - matrix[len][halfOfSum]*2;
+        return sum - matrix[len][halfOfSum] * 2;
     }
 
-    public static void main(String[] args){
-        int[] arr = {1,2,3,4,7};
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 7};
         int value = match(arr);
         System.out.println(value);
     }

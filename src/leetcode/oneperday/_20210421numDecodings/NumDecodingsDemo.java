@@ -21,6 +21,7 @@ public class NumDecodingsDemo {
 
 class Solution {
     private final String STR_ZERO = "0";
+
     public int numDecodings1(String s) {
         if (s != null && s.length() > 0) {
             int preNum = 0;
@@ -28,7 +29,7 @@ class Solution {
             //初始化操作,边界条件，因为遍历时需要知道上一个编码数量和上上一个编码数量
             if (Integer.parseInt(s.substring(0, 1)) != 0) {
                 preNum = 1;
-                if (s.length() > 1 && Integer.parseInt(s.substring(0,2)) <= 26){
+                if (s.length() > 1 && Integer.parseInt(s.substring(0, 2)) <= 26) {
                     prePreNum = 1;
                 }
             } else {

@@ -127,12 +127,12 @@ public class MyArray<E> {
         }
     }
 
-    public E getFirst(){
+    public E getFirst() {
         return get(0);
     }
 
-    public E getLast(){
-        return get(getSize()-1);
+    public E getLast() {
+        return get(getSize() - 1);
     }
 
     @Override

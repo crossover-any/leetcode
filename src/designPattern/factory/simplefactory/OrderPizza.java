@@ -11,31 +11,31 @@ import java.io.InputStreamReader;
  */
 public class OrderPizza {
 
-    public OrderPizza(){
+    public OrderPizza() {
         String type = getType();
         Pizza pizza = null;
-        do{
-            if ("cheesePizza".equals(type)){
+        do {
+            if ("cheesePizza".equals(type)) {
                 pizza = new cheesePizza();
-            }else if ("greekPizza".equals(type)){
+            } else if ("greekPizza".equals(type)) {
                 pizza = new GreekPizza();
-            }else{
+            } else {
                 break;
             }
             pizza.prepare();
             pizza.bake();
             pizza.cut();
             pizza.box();
-        }while (true);
+        } while (true);
     }
 
-    private String getType(){
+    private String getType() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("input pizza type:");
             String type = reader.readLine();
             return type;
-        }catch (Exception e){
+        } catch (Exception e) {
             return "";
         }
     }

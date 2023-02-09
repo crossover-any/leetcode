@@ -5,16 +5,17 @@ import datatruct.ListNode;
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     /**
      * 总计可以分为两种情况，头部重复，和中间或尾部重复
+     *
      * @param head
      * @return
      */
@@ -25,13 +26,13 @@ class Solution {
             ListNode q = dommyHead;
             while (null != p.next) {
                 if (p.val == p.next.val) {
-                    p = deleteDuplicates(p,p.val);
+                    p = deleteDuplicates(p, p.val);
                 } else {
                     q.next = p;
                     q = q.next;
                     p = p.next;
                 }
-                if (null == p || p.next == null){
+                if (null == p || p.next == null) {
                     q.next = p;
                     break;
                 }
@@ -42,7 +43,7 @@ class Solution {
 
     public ListNode deleteDuplicates(ListNode head, int repeatValue) {
         if (null != head && repeatValue == head.val) {
-            return deleteDuplicates(head.next,repeatValue);
+            return deleteDuplicates(head.next, repeatValue);
         }
         return head;
     }
@@ -51,11 +52,11 @@ class Solution {
 /**
  * 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
  * 示例 1:
- *
+ * <p>
  * 输入: 1->2->3->3->4->4->5
  * 输出: 1->2->5
  * 示例 2:
- *
+ * <p>
  * 输入: 1->1->1->2->3
  * 输出: 2->3
  */
@@ -76,7 +77,7 @@ public class deleteDuplicatesDemo {
         n6.next = n7;
         Solution solution = new Solution();
         ListNode listNode = solution.deleteDuplicates(n1);
-        while (null != listNode){
+        while (null != listNode) {
             System.out.println(listNode.val);
             listNode = listNode.next;
         }

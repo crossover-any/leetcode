@@ -14,8 +14,8 @@ public class MyThreadPool {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         for (int i = 0; i < 20; i++) {
-            executorService.execute(()->{
-                System.out.println(Thread.currentThread().getName()+" 正在办理业务");
+            executorService.execute(() -> {
+                System.out.println(Thread.currentThread().getName() + " 正在办理业务");
             });
         }
 

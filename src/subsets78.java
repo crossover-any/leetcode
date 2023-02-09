@@ -12,21 +12,21 @@ public class subsets78 {
     public List<List<Integer>> subsets(int[] nums) {
         int len = nums.length;
         List<List<Integer>> res = new LinkedList<>();
-        if(len == 0 ){
+        if (len == 0) {
             return res;
         }
         List<Integer> pre = new LinkedList<>();
-        findSubset(res,nums,pre,0);
+        findSubset(res, nums, pre, 0);
         return res;
     }
 
-    public void findSubset(List<List<Integer>> res,int[] nums,List<Integer> pre,int begin){
+    public void findSubset(List<List<Integer>> res, int[] nums, List<Integer> pre, int begin) {
         res.add(new ArrayList<>(pre));
 
-        for(int i = begin;i<nums.length;i++){
+        for (int i = begin; i < nums.length; i++) {
             pre.add(nums[i]);
-            findSubset(res,nums,pre,i+1);
-            pre.remove(pre.size()-1);
+            findSubset(res, nums, pre, i + 1);
+            pre.remove(pre.size() - 1);
         }
     }
 }

@@ -14,7 +14,7 @@ public class demo {
     public static void main(String[] args) {
         System.out.println(Runtime.getRuntime().availableProcessors());
         Scanner input = new Scanner(System.in);
-        while (input.hasNext()){
+        while (input.hasNext()) {
 
         }
     }

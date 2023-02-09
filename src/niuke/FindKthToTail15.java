@@ -10,18 +10,19 @@ import datatruct.ListNode;
  */
 public class FindKthToTail15 {
     private ListNode kNode = null;
-    public ListNode FindKthToTail(ListNode head,int k) {
-        FindNode(head,k);
+
+    public ListNode FindKthToTail(ListNode head, int k) {
+        FindNode(head, k);
         return kNode;
     }
 
-    public int FindNode(ListNode node,int k){
-        int index =0;
-        if(node == null){
+    public int FindNode(ListNode node, int k) {
+        int index = 0;
+        if (node == null) {
             return index;
         }
-        index = FindNode(node.next,k)+1;
-        if(k == index){
+        index = FindNode(node.next, k) + 1;
+        if (k == index) {
             kNode = node;
         }
         return index;
@@ -39,7 +40,7 @@ public class FindKthToTail15 {
         l3.next = l4;
         l4.next = l5;
         FindKthToTail15 test = new FindKthToTail15();
-        ListNode res = test.FindKthToTail(l1,6);
+        ListNode res = test.FindKthToTail(l1, 6);
         System.out.println(res.val);
     }
 }

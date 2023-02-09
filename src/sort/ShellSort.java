@@ -9,23 +9,23 @@ import java.util.Arrays;
  * @Created by Tengxq
  */
 public class ShellSort {
-    public void shellSort(int[] nums){
+    public void shellSort(int[] nums) {
         int N = nums.length;
-        for(int gap = N/2;gap>0;gap/=2){
-            for (int i = gap; i <N ; i++) {
+        for (int gap = N / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < N; i++) {
                 int temp = nums[i];
-                int j = i-gap;
-                while (j>=0 && temp<nums[j]){
-                    nums[j+gap] = nums[j];
-                    j-=gap;
+                int j = i - gap;
+                while (j >= 0 && temp < nums[j]) {
+                    nums[j + gap] = nums[j];
+                    j -= gap;
                 }
-                nums[j+gap] = temp;
+                nums[j + gap] = temp;
             }
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = {88,2,55,41,23,65,5,4,9,46};
+        int[] nums = {88, 2, 55, 41, 23, 65, 5, 4, 9, 46};
         ShellSort shellSort = new ShellSort();
         shellSort.shellSort(nums);
         System.out.println(Arrays.toString(nums));

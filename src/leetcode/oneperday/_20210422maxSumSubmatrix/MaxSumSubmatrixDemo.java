@@ -23,7 +23,7 @@ package leetcode.oneperday._20210422maxSumSubmatrix;
  */
 public class MaxSumSubmatrixDemo {
     public static void main(String[] args) {
-        int[][] arr = {{5,-4,-3,4},{-3,-4,4,5},{5,1,5,-4}};
+        int[][] arr = {{5, -4, -3, 4}, {-3, -4, 4, 5}, {5, 1, 5, -4}};
         Solution solution = new Solution();
         System.out.println(solution.maxSumSubmatrix2(arr, 3));
 
@@ -84,7 +84,7 @@ class Solution {
     public int maxSumSubmatrix2(int[][] matrix, int k) {
         int m = matrix.length;//row
         int n = matrix[0].length;//col
-        initCalArr(matrix,m,n);
+        initCalArr(matrix, m, n);
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -106,7 +106,7 @@ class Solution {
         int n = calMatrix[0].length;//col
         for (int p = i + 1; p < m; p++) {
             for (int q = j + 1; q < n; q++) {
-                int cal = calMatrix[p][q] - calMatrix[i+1][j+1] + matrix[i][j] - calMatrix[p-1][q] - calMatrix[p][j];
+                int cal = calMatrix[p][q] - calMatrix[i + 1][j + 1] + matrix[i][j] - calMatrix[p - 1][q] - calMatrix[p][j];
                 if (cal > max && cal <= k) {
                     max = cal;
                 }
@@ -116,10 +116,10 @@ class Solution {
     }
 
     private void initCalArr(int[][] matrix, int m, int n) {
-        calMatrix = new int[m+1][n+1];
-        for (int i = 1; i < m +1; i++) {
-            for (int j = 1; j < n+1; j++) {
-                calMatrix[i][j] = matrix[i-1][j-1] + calMatrix[i-1][j]+calMatrix[i][j-1] - calMatrix[i-1][j-1];
+        calMatrix = new int[m + 1][n + 1];
+        for (int i = 1; i < m + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                calMatrix[i][j] = matrix[i - 1][j - 1] + calMatrix[i - 1][j] + calMatrix[i][j - 1] - calMatrix[i - 1][j - 1];
             }
         }
     }

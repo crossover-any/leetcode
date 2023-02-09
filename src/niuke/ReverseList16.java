@@ -10,7 +10,7 @@ import datatruct.ListNode;
  */
 public class ReverseList16 {
     public ListNode ReverseList(ListNode head) {
-        if(head.next == null){
+        if (head.next == null) {
             return head;
         }
         ListNode temp = ReverseList(head.next);

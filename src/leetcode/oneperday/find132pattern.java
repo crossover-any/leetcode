@@ -8,13 +8,13 @@ package leetcode.oneperday;
  */
 class Solution {
     public boolean find132pattern(int[] nums) {
-        if (null != nums && nums.length > 2){
+        if (null != nums && nums.length > 2) {
 
         }
         return false;
     }
 
-    private boolean  exists132Pattern(int[] nums, int root) {
+    private boolean exists132Pattern(int[] nums, int root) {
         return false;
     }
 }

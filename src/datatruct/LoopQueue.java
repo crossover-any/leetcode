@@ -13,11 +13,12 @@ public class LoopQueue<E> implements Queue<E> {
     private int front = 0;
     private int tail = 0;
     private int size = 0;
-    public LoopQueue(){
+
+    public LoopQueue() {
         this(10);
     }
 
-    public LoopQueue(int capacity){
+    public LoopQueue(int capacity) {
         queue = (E[]) new Object[capacity];
     }
 
@@ -26,7 +27,7 @@ public class LoopQueue<E> implements Queue<E> {
         return size;
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return queue.length;
     }
 
@@ -37,8 +38,8 @@ public class LoopQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) {
-        if (tail+1 % queue.length == 0){
-            reSize(queue.length*2);
+        if (tail + 1 % queue.length == 0) {
+            reSize(queue.length * 2);
         }
         queue[tail++] = e;
         size++;
@@ -47,19 +48,19 @@ public class LoopQueue<E> implements Queue<E> {
     private void reSize(int newCapacity) {
         E[] newQueue = (E[]) new Object[newCapacity];
         for (int i = 0; i < queue.length; i++) {
-            newQueue[i] = queue[(i+front)%queue.length];
+            newQueue[i] = queue[(i + front) % queue.length];
         }
         queue = newQueue;
     }
 
     @Override
     public E dequeue() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new NullPointerException("queue is emtpty");
         }
-        tail = (tail+1)%queue.length;
+        tail = (tail + 1) % queue.length;
         size--;
-        if (tail == queue.length/2 && size/2!=0){
+        if (tail == queue.length / 2 && size / 2 != 0) {
             reSize(size);
         }
         return null;

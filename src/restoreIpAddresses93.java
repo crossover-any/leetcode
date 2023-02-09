@@ -4,8 +4,10 @@
  * @Date 2019/11/12 22:43
  * @Created by Tengxq
  */
+
 import java.util.List;
 import java.util.ArrayList;
+
 public class restoreIpAddresses93 {
 
     public List<String> restoreIpAddresses(String s) {
@@ -15,10 +17,10 @@ public class restoreIpAddresses93 {
     }
 
     /**
-     * @param:  start 字符串开始部分
-     * @param:  temp 已经划分的部分
-     * @param:  ans 保存所有的解
-     * @param:  count 当前已经加入了几部分
+     * @param: start 字符串开始部分
+     * @param: temp 已经划分的部分
+     * @param: ans 保存所有的解
+     * @param: count 当前已经加入了几部分
      */
     private void getAns(String s, int start, StringBuilder temp, List<String> ans, int count) {
         //如果剩余的长度大于剩下的部分都取 3 位数的长度，那么直接结束
@@ -49,7 +51,7 @@ public class restoreIpAddresses93 {
         getAns(s, start + 1, temp, ans, count + 1);
 
         //如果开头是 0，直接结束
-        if (s.charAt(start) == '0'){
+        if (s.charAt(start) == '0') {
             return;
         }
 
@@ -75,36 +77,36 @@ public class restoreIpAddresses93 {
 
     public static void main(String[] args) {
 
-        int[][] arr = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
+        int[][] arr = {{1, 2, 8, 9}, {2, 4, 9, 12}, {4, 7, 10, 13}, {6, 8, 11, 15}};
         restoreIpAddresses93 test = new restoreIpAddresses93();
 
-        System.out.println(test.Find(7,arr));
+        System.out.println(test.Find(7, arr));
 
     }
 
-    public boolean Find(int target, int [][] array) {
+    public boolean Find(int target, int[][] array) {
 
         boolean res = false;
-        for(int i = 0 ;i<array[0].length;i++){
-            res = binarySearch(array[i],target);
-            if (res){
+        for (int i = 0; i < array[0].length; i++) {
+            res = binarySearch(array[i], target);
+            if (res) {
                 return res;
             }
         }
         return res;
     }
 
-    public boolean binarySearch(int[] array , int target){
-        int p = 0 ;
-        int q = array.length-1;
+    public boolean binarySearch(int[] array, int target) {
+        int p = 0;
+        int q = array.length - 1;
         int mid;
-        while(p<=q){
-            mid = (p+q)>>>1;
-            if(array[mid] > target){
-                q = mid -1;
-            }else if(array[mid] < target){
-                p = mid+1;
-            }else{
+        while (p <= q) {
+            mid = (p + q) >>> 1;
+            if (array[mid] > target) {
+                q = mid - 1;
+            } else if (array[mid] < target) {
+                p = mid + 1;
+            } else {
                 return true;
             }
         }

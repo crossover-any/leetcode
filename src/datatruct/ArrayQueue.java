@@ -11,13 +11,14 @@ import datatruct.util.Queue;
 public class ArrayQueue<E> implements Queue<E> {
     private MyArray<E> queue;
 
-    public ArrayQueue(int capacity){
+    public ArrayQueue(int capacity) {
         queue = new MyArray(capacity);
     }
 
-    public ArrayQueue(){
+    public ArrayQueue() {
         queue = new MyArray<>();
     }
+
     @Override
     public int getSize() {
         return queue.getSize();

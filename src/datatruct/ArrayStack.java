@@ -8,14 +8,14 @@ import datatruct.util.Stack;
  * @Date 2020/1/6 22:20
  * @Created by Tengxq
  */
-public class ArrayStack<E> implements Stack<E>{
+public class ArrayStack<E> implements Stack<E> {
     MyArray<E> array;
 
-    public ArrayStack(int capacity){
+    public ArrayStack(int capacity) {
         array = new MyArray<>(capacity);
     }
 
-    public ArrayStack(){
+    public ArrayStack() {
         array = new MyArray<>();
     }
 
@@ -47,7 +47,7 @@ public class ArrayStack<E> implements Stack<E>{
         return array.getLast();
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return array.getCapacity();
     }
 }

@@ -15,40 +15,40 @@ import java.util.concurrent.TimeUnit;
 public class TheadVirtualWakeUp {
     private List<Integer> list = new ArrayList<>();
 
-    public synchronized void push(int value){
+    public synchronized void push(int value) {
         list.add(value);
         notify();
     }
 
-    public synchronized  int pop(){
+    public synchronized int pop() {
         try {
-            if (list.size()<1){
-                System.out.println(Thread.currentThread().getName()+"正在 pop");
+            if (list.size() < 1) {
+                System.out.println(Thread.currentThread().getName() + "正在 pop");
                 wait();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return  list.remove(list.size()-1);
+        return list.remove(list.size() - 1);
     }
 
     public static void main(String[] args) {
         TheadVirtualWakeUp test = new TheadVirtualWakeUp();
-        new Thread(()->{
-            System.out.println(Thread.currentThread().getName()+"正在put");
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + "正在put");
             test.push(1);
-            System.out.println(Thread.currentThread().getName()+"结束put");
-        },"A").start();
+            System.out.println(Thread.currentThread().getName() + "结束put");
+        }, "A").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             test.pop();
-            System.out.println(Thread.currentThread().getName()+"结束 pop");
-        },"B").start();
+            System.out.println(Thread.currentThread().getName() + "结束 pop");
+        }, "B").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             test.pop();
-            System.out.println(Thread.currentThread().getName()+"结束 pop");
-        },"C").start();
+            System.out.println(Thread.currentThread().getName() + "结束 pop");
+        }, "C").start();
 
 
     }

@@ -18,28 +18,28 @@ public class ObserverPattrern {
 }
 
 //抽象目标
-abstract  class Subject{
+abstract class Subject {
     protected List<Observer> observers = new ArrayList<>();
 
-    public void add(Observer observer){
+    public void add(Observer observer) {
         observers.add(observer);
     }
 
-    public void remove(Observer observer){
+    public void remove(Observer observer) {
         observers.remove(observer);
     }
 
     public abstract void notifyObserver();
 }
 
-class ConcreteSubject extends Subject{
+class ConcreteSubject extends Subject {
     @Override
     public void notifyObserver() {
-        
+
     }
 }
 
-interface Observer{
+interface Observer {
     void response();
 }
 

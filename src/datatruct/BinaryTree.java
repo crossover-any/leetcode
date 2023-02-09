@@ -12,6 +12,7 @@ public class BinaryTree {
     /**
      * 后序遍历 非递归
      * 双栈法
+     *
      * @param root
      */
     public static void postOrder2(Node root) {
@@ -35,7 +36,7 @@ public class BinaryTree {
         }
     }
 
-    private class Node{
+    private class Node {
         public Node rightNode;
         public Node leftNode;
         public int data;
