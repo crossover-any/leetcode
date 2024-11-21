@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.order;
 
 import datatruct.UnionFind;
 
