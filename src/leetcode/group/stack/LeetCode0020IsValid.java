@@ -1,8 +1,6 @@
 package leetcode.group.stack;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  *
@@ -11,24 +9,26 @@ import java.util.Stack;
  */
 public class LeetCode0020IsValid {
 
+    private Map<Character, Character> dict = new HashMap<>();
+
+    {
+        dict.put('(', ')');
+        dict.put('[', ']');
+        dict.put('{', '}');
+    }
+
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] charArray = s.toCharArray();
         for (char c : charArray) {
-            if (c == '(' || c == '[' || c == '{') {
+            if (dict.containsKey(c)) {
                 stack.push(c);
             } else {
                 if (stack.isEmpty()) {
                     return false;
                 }
                 char top = stack.pop();
-                if (c == ')' && top != '(') {
-                    return false;
-                }
-                if (c == ']' && top != '[') {
-                    return false;
-                }
-                if (c == '}' && top != '{') {
+                if (dict.get(top) != c) {
                     return false;
                 }
             }
