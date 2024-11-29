@@ -1,4 +1,4 @@
-package leetcode.group;
+package leetcode.group.tree;
 
 import model.TreeNode;
 
