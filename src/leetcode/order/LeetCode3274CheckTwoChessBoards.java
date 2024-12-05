@@ -3,10 +3,10 @@ package leetcode.order;
 /**
  * @author tengxq
  */
-public class LeetCodeCheckTwoChessBoards {
+public class LeetCode3274CheckTwoChessBoards {
 
     public static void main(String[] args) {
-        LeetCodeCheckTwoChessBoards test = new LeetCodeCheckTwoChessBoards();
+        LeetCode3274CheckTwoChessBoards test = new LeetCode3274CheckTwoChessBoards();
         System.out.println(test.checkTwoChessboards("a1", "b1"));
     }
 
