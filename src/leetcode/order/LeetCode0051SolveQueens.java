@@ -22,12 +22,12 @@ public class LeetCode0051SolveQueens {
             List<String> board = generateBoard(queens, n);
             solutions.add(board);
         } else {
-            // 获取当前行所有可用的位置
+            // 获取当前行所有可用的位置 ((1 << n) - 1) 如果是8皇后则是11111111, 变化的其实是columns与diagonals
             int availablePositions = ((1 << n) - 1) & (~(columns | diagonals1 | diagonals2));
             while (availablePositions != 0) {
-                // 获取最低位的1
+                // 获取可用位置：最低位的1
                 int position = availablePositions & (-availablePositions);
-                // 将position标记为已被占用
+                // 将position标记为已被占用：将最低位置为1
                 availablePositions = availablePositions & (availablePositions - 1);
                 int column = Integer.bitCount(position - 1);
                 queens[row] = column;
