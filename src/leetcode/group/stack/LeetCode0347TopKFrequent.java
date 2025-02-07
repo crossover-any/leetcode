@@ -14,7 +14,7 @@ public class LeetCode0347TopKFrequent {
         int[] res = new int[k]; // 答案数组为 k 个元素
         Map<Integer, Integer> map = new HashMap<>(); // 记录元素出现次数
         for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
-        for (var x : map.entrySet()) { // entrySet 获取 k-v Set 集合
+        for (Map.Entry<Integer, Integer> x : map.entrySet()) {
             // 将 kv 转化成数组
             int[] tmp = new int[2];
             tmp[0] = x.getKey();
