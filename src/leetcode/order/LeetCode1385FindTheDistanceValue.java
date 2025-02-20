@@ -14,12 +14,6 @@ public class LeetCode1385FindTheDistanceValue {
             if (Math.abs(arr2[left] - arr1[i]) <= d) {
                 continue;
             }
-
-            // 寻找右边等于或第一个小于arr[i] + d的数坐标
-            int right = searchHigher(arr2, arr1[i] + d);
-            if (Math.abs(arr2[right] - arr1[i]) <= d) {
-                continue;
-            }
             res++;
         }
         return res;
