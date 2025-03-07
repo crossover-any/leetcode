@@ -6,7 +6,7 @@ public class LeetCode1278PalindromePartition {
 
     public int palindromePartition(String s, int k) {
         int n = s.length();
-        //
+        // 定义动态数组，cost[i][j] 表示 i~j坐标的字符串变成回文字符串替换需要的最小次数
         int[][] f = new int[n + 1][k + 1];
         for (int[] row : f) {
             // 设置一个最大值
